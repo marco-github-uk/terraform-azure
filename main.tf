@@ -6,12 +6,12 @@ terraform {
       version = "~> 3.0.2"
     }
   }
-    backend "azurerm" {
-        resource_group_name  = "terraformstate-rg"
-        storage_account_name = "terraformstate10001"
-        container_name       = "terraform-state-files-prod"
-        key                  = "terraform.tfstate"
-    }
+  backend "azurerm" {
+    resource_group_name  = "terraformstate-rg"
+    storage_account_name = "terraformstate10001"
+    container_name       = "terraform-state-files-prod"
+    key                  = "terraform.tfstate"
+  }
 
   required_version = ">= 1.1.0"
 }
@@ -21,12 +21,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name 
+  name     = var.resource_group_name
   location = "eastus"
-  
+
   tags = {
     Environment = "Terraform Getting Started"
-    Team = "DevOps"
+    Team        = "DevOps"
   }
 }
 
