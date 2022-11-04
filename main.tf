@@ -139,7 +139,7 @@ resource "azurerm_linux_virtual_machine" "linux-vm" {
   }
 
   provisioner "local-exec" {
-    command = templatefile("mac-ssh-script.tpl", {
+    command = templatefile("osx-ssh-script.tpl", {
       hostname     = self.public_ip_address,
       user         = "adminuser",
       identityfile = "~/.ssh/id_rsa"
