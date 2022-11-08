@@ -30,7 +30,7 @@ resource "azurerm_resource_group" "rg" {
   }
 }
 
-# Create a virtual network
+# Create a virtual network∏
 resource "azurerm_virtual_network" "vnet" {
   name                = var.virtual_network_name
   address_space       = ["10.0.0.0/16"]
@@ -67,7 +67,7 @@ resource "azurerm_network_security_rule" "prod-rule" {
   protocol                    = "*"
   source_port_range           = "*"
   destination_port_range      = "*"
-  source_address_prefix       = "90.212.155.243/32"
+  source_address_prefixes     = ["90.212.155.243/32", "109.144.21.88/32"]
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = azurerm_network_security_group.sg.name
